@@ -5,11 +5,11 @@ import mongoose from 'mongoose'
 import router from './router/index.js'
 
 //Traemos las variables de entorno
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 //CONEXION A LA BASE DE DATOS
 mongoose.Promise = global.Promise;
-const dbUrL = process.env.MONGO_URL;
+const dbUrL = "mongodb://d3f4ult0:oHMn466UKRPeAyqPLRrG9TNfjmd8e5Meouws1BydhYqupzVcX6@mongo.duck-hack.cloud/ecommerce?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&ssl=false";
 mongoose.connect(dbUrL)
   .then(() => console.log("Conectado a MongoDB"))
   .catch((err) => console.error("Error al conectar a MongoDB", err));
