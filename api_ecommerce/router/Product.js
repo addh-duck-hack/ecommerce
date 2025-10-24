@@ -1,0 +1,33 @@
+import routerx from 'express-promise-router'
+import productController from '../controllers/ProductController.js'
+import variedadController from '../controllers/VariedadController.js'
+import auth from '../middlewares/auth.js'
+
+
+import multiparty from 'connect-multiparty'
+var path = multiparty({uploadDir: './uploads/product'})
+const router = routerx();
+// http://localhost:3000/api/users/register
+
+router.post("/register",[auth.verifyAdmin,path],productController.register);
+
+router.post("/register_imagen",[auth.verifyAdmin,path],productController.register_imagen);
+router.post("/remove_image",[auth.verifyAdmin,path],productController.remove_image);
+
+router.put("/update",[auth.verifyAdmin,path],productController.update);
+router.get("/list",auth.verifyAdmin,productController.list);
+router.delete("/delete",auth.verifyAdmin,productController.remove);
+
+router.get("/uploads/product/:img",productController.obtener_imagen);
+
+router.get("/show/:id",productController.show);
+
+// VARIEDAD
+
+router.post("/register-variedad",[auth.verifyAdmin,path],variedadController.register);
+router.put("/update-variedad",[auth.verifyAdmin,path],variedadController.update);
+router.delete("/delete-variedad/:id",[auth.verifyAdmin,path],variedadController.delete);
+
+
+
+export default router;

@@ -1,0 +1,24 @@
+services:
+  admin-ecommerce:
+    build:
+      context: ./admin_ecommerce
+      dockerfile: Dockerfile
+    ports:
+      - "89:80"
+
+  ecommerce:
+    build: ./ecommerce
+    ports:
+      - "82:80"
+    volumes:
+      - ./frontend-user:/app
+
+  api_ecommerce:
+    build: ./api_ecommerce
+    ports:
+      - "83:5000"
+    env_file:
+      - ./api_ecommerce/.env
+    volumes:
+      - ./api_ecommerce:/app
+      - /app/node_modules
