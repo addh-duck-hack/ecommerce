@@ -1,5 +1,14 @@
-yarn-debug.log*
-yarn-error.log*
+# -----------------------------
+# Dependencies
+# -----------------------------
+**/node_modules
+**/node_modules/
+node_modules
+node_modules/
+package-lock.json
+yarn.lock
+.pnp
+.pnp.js
 
 # -----------------------------
 # General
