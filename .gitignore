@@ -11,6 +11,14 @@ yarn.lock
 .pnp.js
 
 # -----------------------------
+# Angular
+# -----------------------------
+.angular/
+.angular/cache/
+**/.angular/cache
+**/.angular/cache/
+
+# -----------------------------
 # General
 # -----------------------------
 .DS_Store
